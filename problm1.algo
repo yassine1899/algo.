@@ -1,0 +1,40 @@
+ALGORITHM correction
+VAR
+    set1: ARRAY_OF INTEGER;
+    i , j : INTEGER:=0;
+    sum : INTEGER;
+BEGIN
+    set1:={3,1,7,9};
+    set1:={2,3,1,9,4};
+    WHILE (i < set1. length) DO
+    WHILE (j < set2. length) DO
+        IF ( set1[i] <> set2[j]) THEN
+        j:=j+1;
+        ELSE
+        i:=i+1;
+        j:=0
+        END_IF
+    END_WHILE
+    sum:=sum + set1[i]
+    i:=i+1;
+    j=0
+    END_WHILE
+       set1:={3,1,7,9};
+       set1:={2,3,1,9,4};
+    WHILE (j < set2. length) DO
+    WHILE (i < set1. length) DO
+        IF ( set2[j] <> set1[i]) THEN
+        i:=i+1;
+        ELSE
+        j:=j+1;
+        i:=0
+        END_IF
+    END_WHILE
+    sum:=sum + set2[j]
+    j:=j+1;
+    i=0
+    END_WHILE
+    Write("the sum of the distincts elements is :" , sum)
+END
+   
+
