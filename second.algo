@@ -1,0 +1,38 @@
+ALGORITHM algorithm_name
+VAR
+    r1: FLOAT := 0.7;
+    r2: FLOAT := 0.4;
+    r3: FLOAT := 0.2;
+    p_d: FLOAT := 100;
+    ins: FLOAT := 0.3;
+    VAT: FLOAT := 0.18;
+    km, days: INTEGER;
+    costByKm, costByDay: FLOAT;
+BEGIN
+    Write("Type the number of days you want to rent: ");
+    Read(days);
+    Write("Type how many kilometers: ");
+    Read(km);
+
+    IF (km <= 100) THEN
+        costByKm := km * r1;
+    ELSE_IF (km <= 1000) THEN
+        costByKm := 100 * r1 + (km - 100) * r2;
+    ELSE
+        costByKm := 100 * r1 + 900 * r2 + (km - 1000) * r3;
+    END_IF
+
+    costByKm := costByKm + (costByKm * VAT) + (days * ins) + (days * p_d) + (days * VAT);
+
+    costByDay := days * p_d;
+    costByDay := costByDay + costByDay * VAT + (days * ins);
+
+    Write("Cost per kilometer: ", costByKm);
+    Write("Cost per day: ", costByDay);
+
+    IF costByKm < costByDay THEN
+        Write("Rental by the kilometer is more advantageous for the client.");
+    ELSE
+        Write("Daily rate rental is more advantageous for the client.");
+    END_IF
+END
